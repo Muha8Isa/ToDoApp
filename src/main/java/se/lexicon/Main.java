@@ -5,7 +5,7 @@ public class Main {
         System.out.println("Hello world!");
         Person mohammad = new Person(123, "Mohammad", "Alissa","example@hotmail.com");
         System.out.println(mohammad.getSummary());
-        Person jack = new Person(124, "Jack", "Warack","ex@hotmail.com");
+        Person jack = new Person(124, "Jack", "Warack","exempel@gmail.com");
         System.out.println(jack.getSummary());
     }
 }
