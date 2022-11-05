@@ -7,15 +7,15 @@ public class TodoItem {
     private int id;
     private String title; // Should not be null
     private String taskDescription;
-    public LocalDate deadLine = LocalDate.parse("2022 11 06"); // Should not be null;
-    public LocalDate currentDate = LocalDate.now(); // Should not be null
+    public static LocalDate deadLine = LocalDate.parse("2022-11-04"); // Should not be null;
+    public static LocalDate currentDate = LocalDate.now(); // Should not be null
     private boolean done;
     private Person creator;
     private static int order = 0;
     private static int sequencer = 0;
 
 
-    public void deadLine() {
+    public static void deadLine() {
         if (currentDate.isAfter(deadLine)) {
             System.out.println("Deadline has passed");
         }
