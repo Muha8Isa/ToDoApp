@@ -7,7 +7,7 @@ public class TodoItem {
     private int id;
     private String title; // Should not be null
     private String taskDescription;
-    public static LocalDate deadLine = LocalDate.parse("2022-11-04"); // Should not be null;
+    public static LocalDate deadLine = LocalDate.parse("2022-11-06"); // Should not be null;
     public static LocalDate currentDate = LocalDate.now(); // Should not be null
     private boolean done;
     private Person creator;
