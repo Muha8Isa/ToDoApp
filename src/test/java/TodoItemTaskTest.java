@@ -6,11 +6,12 @@ import se.lexicon.TodoItemTask;
 public class TodoItemTaskTest {
 
     TodoItemTask task = new TodoItemTask();
+    Person mohammad =  new Person(123, "Mohammad","Alissa", "Mohammad.alissa95@hotmail.com");
 
 
     @Test
     public void testAssignee() {
-        Person expected=  new Person(123, "Mohammad","Alissa", "Mohammad.alissa95@hotmail.com");
+        Person expected = mohammad;
         String actual =  task.getAssignee();
         Assert.assertEquals(expected, actual);
     }
