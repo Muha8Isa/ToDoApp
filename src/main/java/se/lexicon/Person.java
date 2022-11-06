@@ -2,20 +2,17 @@ package se.lexicon;
 
 public class Person {
 
-    private static int order = 0;
+
     private int id;
     private String firstName;
     private String lastName;
     private String email;
-
-    private static int sequencer = 0;
 
     public Person (int id, String firstName, String lastName, String email) {
         setFirstName(firstName);
         setLastName(lastName);
         setId(id);
         setEmail(email);
-        this.order = ++sequencer;
 
     }
     public int getId() {
@@ -54,6 +51,6 @@ public class Person {
     }
 
     public String getSummary() {
-        return " Person#" + order +" FirstName: " + firstName + ", LastName: " + lastName + ", ID: " + id + ", Email: " + email;
+        return " Person" +" FirstName: " + firstName + ", LastName: " + lastName + ", ID: " + id + ", Email: " + email;
     }
 }
