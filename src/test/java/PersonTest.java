@@ -42,4 +42,11 @@ public class PersonTest {
         String expected = " Person FirstName: Mohammad, LastName: Alissa, ID: 111, Email: Mohammad.alissa95@hotmail.com";
         Assert.assertEquals(expected, actual);
     } */
+
+    @Test
+    public void testSummary() {
+        String actual= mohammad.toString();
+        String expected = " Person FirstName: Mohammad, LastName: Alissa, ID: 111, Email: Mohammad.alissa95@hotmail.com";
+        Assert.assertEquals(expected, actual);
+    }
 }

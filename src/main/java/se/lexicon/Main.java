@@ -9,7 +9,7 @@ public class Main {
         //System.out.println(jack.getSummary());
 
         TodoItem clean = new TodoItem(222, "clean", "clean the house");
-        //System.out.println(clean.getSummary());
+        System.out.println(clean.toString());
     }
 
 
