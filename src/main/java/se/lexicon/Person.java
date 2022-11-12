@@ -1,5 +1,7 @@
 package se.lexicon;
 
+import se.lexicon.model.AppUser;
+
 public class Person {
 
 
@@ -7,6 +9,8 @@ public class Person {
     private String firstName;
     private String lastName;
     private String email;
+
+    public AppUser credentials;
 
     public Person (int id, String firstName, String lastName, String email) {
         setFirstName(firstName);
@@ -50,7 +54,31 @@ public class Person {
         this.email = email;
     }
 
-    public String getSummary() {
+    @Override
+    public String toString() {
+        return "Name: " + firstName + " " + lastName + ", ID: " + id + ", Email: " + email;
+    }
+
+    @Override
+    public int hashCode() {
+        return hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return true;
+    }
+
+
+    /*public String getSummary() {
         return " Person" +" FirstName: " + firstName + ", LastName: " + lastName + ", ID: " + id + ", Email: " + email;
+    }*/
+
+    public AppUser getCredentials() {
+        return credentials;
+    }
+
+    public void setCredentials(AppUser credentials) {
+        this.credentials = credentials;
     }
 }
