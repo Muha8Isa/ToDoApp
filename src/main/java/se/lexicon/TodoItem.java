@@ -102,7 +102,7 @@ public class TodoItem {
 
     @Override
     public String toString() {
-        return " Task#" + order + " Title: " + title + ", Task description: " + taskDescription + ", ID: " + id + ", Creator: " + creator + ", Deadline: " + deadLine;
+        return "Task#" + order + " Title: " + title + ", Task description: " + taskDescription + ", ID: " + id + ", Creator: " + creator + ", Deadline: " + deadLine;
     }
 
 }

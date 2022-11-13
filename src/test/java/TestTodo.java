@@ -39,7 +39,7 @@ public class TestTodo {
    @Test
     public void testSummary() {
         String actual= task.toString();
-        String expected = " Task#1 Title: clean, Task description: clean the house, ID: 222, Creator: null, Deadline: 2022-11-06";
+        String expected = "Task#1 Title: clean, Task description: clean the house, ID: 222, Creator: null, Deadline: 2022-11-06";
         Assert.assertEquals(expected, actual);
     }
 
