@@ -9,7 +9,7 @@ public class Main {
         System.out.println(jack.toString());
 
         TodoItem clean = new TodoItem(222, "clean", "clean the house");
-        System.out.println(clean.toString());
+        System.out.println(clean.toString()); // This also works without toString(); System.out.println(clean); It means that I either can call it explicitly toString() or implicitly without toString().
     }
 
 
