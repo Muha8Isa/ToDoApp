@@ -4,8 +4,8 @@ public class PersonIdSequencer {
     private static int currentId;
 
     private static int nextId(){
-    currentId++;
-    return currentId;
+        currentId++;
+    return currentId; //Why did you write ++currentId?
     }
 
     public static int getCurrentId() {
