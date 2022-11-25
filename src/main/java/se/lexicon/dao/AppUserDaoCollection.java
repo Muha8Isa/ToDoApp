@@ -1,6 +1,7 @@
 package se.lexicon.dao;
 
 import se.lexicon.model.AppUser;
+import se.lexicon.sequencers.PersonIdSequencer;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,7 +11,7 @@ public class AppUserDaoCollection implements AppUserDAO{
 
     private List<AppUser> userStorage;
 
-    public AppUserDaoCollection(){
+    public AppUserDaoCollection() {
         userStorage = new ArrayList<>();
     }
 
@@ -18,7 +19,8 @@ public class AppUserDaoCollection implements AppUserDAO{
     public AppUser persist(AppUser appUser) {
         if (appUser == null) throw new IllegalArgumentException("appUser was null");
         AppUser result = findByUsername(appUser.getUsername());
-        if(result != null) throw new IllegalArgumentException("username was duplicate");
+        if(result != null) throw new IllegalArgumentException("username was duplicate"); //How does this work? How does it know that the username is duplicate?
+        appUser.setId(PersonIdSequencer.nextId());
         userStorage.add(appUser);
         return appUser;
     }

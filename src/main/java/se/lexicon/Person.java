@@ -15,7 +15,7 @@ public class Person {
     private String email;
 
     private AppUser credentials; //Should this be public or private?
-    private List<TodoItem> assignedTodos;
+    private List<TodoItem> assignedTodos; //Do I need this here?
 
     public Person(Integer id, String firstName, String lastName, String email, List<TodoItem> assignedTodos) {
         this.id = id;
@@ -48,7 +48,7 @@ public class Person {
         this.assignedTodos = assignedTodos;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

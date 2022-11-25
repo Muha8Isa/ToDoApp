@@ -8,7 +8,7 @@ public interface PersonDAO {
 
     Person persist(Person person);
 
-    Person findById(int id);
+    Person findById(Integer id);
 
 
     Person findByEmail(String email);

@@ -5,7 +5,8 @@ import se.lexicon.Person;
 
 
 public class PersonTest {
-    Person mohammad = new Person(111,"Mohammad","Alissa","Mohammad.alissa95@hotmail.com");
+    //Person mohammad = new Person(111,"Mohammad","Alissa","Mohammad.alissa95@hotmail.com", "clean"); //Why is it error here?
+    Person mohammad = new Person("Mohammad","Alissa");
 
 
     @Test

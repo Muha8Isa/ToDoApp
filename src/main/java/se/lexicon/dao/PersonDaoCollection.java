@@ -27,10 +27,10 @@ public class PersonDaoCollection implements PersonDAO{
     }
 
     @Override
-    public Person findById(int id) {
-        if(id == 0) throw new IllegalArgumentException("ID was null");
+    public Person findById(Integer id) {
+        if(id == null) throw new IllegalArgumentException("ID was null");
         for (Person person:personStorage)
-            if(Person.getId() == id) { // Didn't know what to do here!!!
+            if(person.getId().equals(id)) { // Why do we use person not Person here?
                 return person;
             }
         return null;

@@ -5,7 +5,19 @@ import java.util.Objects;
 import java.util.Set;
 
 public class AppUser {
+
     private String username;
+    private Integer id;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        if (id == null) throw new RuntimeException("id was null");
+        this.id = id;
+    }
+
     private String password;
     private Set<AppRole> roles;
 
@@ -18,14 +30,14 @@ public class AppUser {
     public AppUser(String username,String password,AppRole role){ //Only one role
         setUsername(username);
         setPassword(password);
-        addRole(role);
+        addRole(role); //Why is it "add" here?
     }
-
     public AppUser(String username,String password, Set<AppRole> roles){ //Many roles
         setUsername(username);
         setPassword(password);
-        setRoles(roles);
+        setRoles(roles); //Why is it set here? not add as in line 22?
     }
+
 
     public void addRole(AppRole role){
         if (role == null) throw new IllegalArgumentException("role param was null");
@@ -85,6 +97,7 @@ public class AppUser {
     public String toString() {
         return "AppUser{" +
                 "username='" + username + '\'' +
+                ", id=" + id +
                 ", roles=" + roles +
                 '}';
     }

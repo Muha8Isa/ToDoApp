@@ -1,38 +1,43 @@
 package se.lexicon;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Objects;
 
 
 public class TodoItem {
-    private int id;
+    private int id; //Should this be reference class? In the assignment description it says int, so I assumed it should be primitive data type.
     private String title; // Should not be null
     private String taskDescription;
-    public static LocalDate deadLine = LocalDate.parse("2022-11-06"); // Should not be null;
-    public static LocalDate currentDate = LocalDate.now(); // Should not be null
+   // public static LocalDate deadLine = LocalDate.parse("2022-11-06"); // Should not be null;
+    private LocalDate deadLine;
+    //public static LocalDate currentDate = LocalDate.now(); // Should not be null
     private boolean done;
     private Person creator;
     private static int order = 0;
     private static int sequencer = 0;
 
-
-    public static void deadLine() {
-        if (currentDate.isAfter(deadLine)) {
-            System.out.println("Deadline has passed");
-        }
-    }
-
-    public TodoItem(int id, String title, String taskDescription) {
+    public TodoItem(int id, String title, String taskDescription, LocalDate deadLine, boolean done, Person creator) { // This is to fetch TodoItem from Collection.
         setTitle(title);
         setTaskDescription(taskDescription);
         setId(id);
+        setDeadLine(deadLine);
+        setDone(done);
+        setCreator(creator);
         this.order = ++sequencer;
     }
 
-    public int getId() {
+    public TodoItem(String title, String taskDescription, LocalDate deadLine) { // This is to create TodoItem.
+        this.title = title;
+        this.taskDescription = taskDescription;
+        this.deadLine = deadLine;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -69,14 +74,6 @@ public class TodoItem {
         this.creator = creator;
     }
 
-    public LocalDate getCurrentDate() {
-        return currentDate;
-    }
-
-    public void setCurrentDate(LocalDate currentDate) {
-        this.currentDate = currentDate;
-    }
-
     public LocalDate getDeadLine() {
         if (deadLine == null) throw new IllegalArgumentException("Deadline param was null");
         return deadLine;
@@ -86,23 +83,35 @@ public class TodoItem {
         this.deadLine = deadLine;
     }
 
-      /*  public String getSummary () {
-            return " Task#" + order + " Title: " + title + ", Task description: " + taskDescription + ", ID: " + id + ", Creator: " + creator +", Deadline: " + deadLine;
-        }*/
-      @Override
-      public boolean equals(Object obj) {
-          return true;
-      }
-
-    @Override
-    public int hashCode() {
-        return hashCode();
+    public boolean isOverdue(){
+        LocalDate currentDate = LocalDate.now();
+        if (currentDate.isAfter(deadLine)) return true;
+        return false;
     }
 
 
     @Override
     public String toString() {
-        return "Task#" + order + " Title: " + title + ", Task description: " + taskDescription + ", ID: " + id + ", Creator: " + creator + ", Deadline: " + deadLine;
+        return "TodoItem{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", taskDescription='" + taskDescription + '\'' +
+                ", deadLine=" + deadLine +
+                ", done=" + done +
+                ", PeronName=" + creator.getFirstName() + " " + creator.getLastName() +
+                '}';
     }
 
+    @Override
+    public boolean equals(Object o) { // Should I have one for creator?
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TodoItem todoItem = (TodoItem) o;
+        return id == todoItem.id && done == todoItem.done && Objects.equals(title, todoItem.title) && Objects.equals(taskDescription, todoItem.taskDescription) && Objects.equals(deadLine, todoItem.deadLine);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, taskDescription, deadLine, done);
+    }
 }

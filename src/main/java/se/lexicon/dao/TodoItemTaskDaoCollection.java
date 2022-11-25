@@ -23,10 +23,10 @@ public class TodoItemTaskDaoCollection implements TodoItemTaskDAO{
     }
 
     @Override
-    public TodoItemTask findById(int id) {
-        if(id == 0) throw new IllegalArgumentException("ID was null");
+    public TodoItemTask findById(Integer id) {
+        if(id == null) throw new IllegalArgumentException("ID was null");
         for (TodoItemTask todoItemTask:itemTaskStorage)
-            if(TodoItemTask.getId() == id) { // Didn't know what to do here!!!
+            if(todoItemTask.getId() == id) { // Didn't know what to do here!!!
                 return todoItemTask;
             }
         return null;

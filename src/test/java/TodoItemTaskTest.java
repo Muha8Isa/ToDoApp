@@ -6,8 +6,8 @@ import se.lexicon.TodoItemTask;
 public class TodoItemTaskTest {
 
     TodoItemTask task = new TodoItemTask();
-    Person mohammad =  new Person(123, "Mohammad","Alissa", "Mohammad.alissa95@hotmail.com");
-
+    //Person mohammad = new Person(111,"Mohammad","Alissa","Mohammad.alissa95@hotmail.com", "clean"); //Why is it error here?
+    Person mohammad = new Person("Mohammad","Alissa");
 
     @Test
     public void testAssignee() {

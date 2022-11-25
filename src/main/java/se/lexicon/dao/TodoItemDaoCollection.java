@@ -9,6 +9,8 @@ public class TodoItemDaoCollection implements TodoItemDAO{
 
 
     private List<TodoItem> itemStorage;
+    private List<TodoItem> afterDeadLine;
+    private List<TodoItem> beforeDeadLine;
 
     public TodoItemDaoCollection(){
         itemStorage = new ArrayList<>();
@@ -25,10 +27,10 @@ public class TodoItemDaoCollection implements TodoItemDAO{
     }
 
     @Override
-    public TodoItem findById(int id) {
-        if(id == 0) throw new IllegalArgumentException("ID was null");
+    public TodoItem findById(Integer id) {
+        if(id == null) throw new IllegalArgumentException("ID was null");
         for (TodoItem todoItem:itemStorage)
-            if(TodoItem.getId() == id) { // Didn't know what to do here!!!
+            if(todoItem.getId().equals(id)) { // Didn't know what to do here!!!
                 return todoItem;
             }
         return null;
@@ -67,21 +69,19 @@ public class TodoItemDaoCollection implements TodoItemDAO{
     }
 
     @Override
-    public Collection<TodoItem> findByDeadlineBefore(LocalDate beforeDate) {
-        List<TodoItem> deadLineBefore = new ArrayList<>();
-        for (TodoItem beforre : itemStorage){
-            if (beforre.before(beforeDate)) deadLineBefore.add(beforre.getDeadLine());
-        }
-        return deadLineBefore;
+    public Collection<TodoItem> findByDeadlineBefore(LocalDate date) {
+        for (TodoItem remaining : itemStorage){
+            LocalDate day = remaining.getDeadLine();
+            if(day.equals(date)) beforeDeadLine.add(remaining);
+        } return beforeDeadLine;
     }
 
     @Override
-    public Collection<TodoItem> findByDeadlineAfter(LocalDate afterDate) {
-        List<TodoItem> deadLineAfter = new ArrayList<>();
-        for (TodoItem afterr : itemStorage){
-            if (afterr.after(afterDate)) deadLineAfter.add(afterr.getDeadLine());
-        }
-        return deadLineAfter;
+    public Collection<TodoItem> findByDeadlineAfter(LocalDate date) {
+        for (TodoItem overdue : itemStorage){
+            LocalDate day = overdue.getDeadLine();
+            if(day.isAfter(date)) beforeDeadLine.add(overdue);
+        } return afterDeadLine;
     }
 
     @Override

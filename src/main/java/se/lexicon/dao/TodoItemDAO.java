@@ -10,7 +10,7 @@ public interface TodoItemDAO {
 
     TodoItem persist(TodoItem todoItem);
 
-    TodoItem findById(int id);
+    TodoItem findById(Integer id);
 
     Collection<TodoItem> findAll();
 

@@ -8,7 +8,7 @@ import java.util.Collection;
 public interface TodoItemTaskDAO {
 
     TodoItemTask persist(TodoItemTask todoItemTask);
-    TodoItemTask findById(int id);
+    TodoItemTask findById(Integer id);
     Collection<TodoItemTask> findAll();
 
     boolean findByAssignedStatus(boolean available);

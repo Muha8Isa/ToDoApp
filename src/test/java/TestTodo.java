@@ -6,8 +6,8 @@ import java.time.LocalDate;
 
 public class TestTodo {
 
-    TodoItem task = new TodoItem(222, "clean", "clean the house");
-
+    //TodoItem task = new TodoItem(222, "clean", "clean the house", LocalDate.parse("2020-10-10"), true, "Mohammad"); //Why doesnt this work?
+    TodoItem task = new TodoItem("Cleaning", "Clean the house", LocalDate.parse("2020-10-10"));
     @Test
 
     public void testTitle() {

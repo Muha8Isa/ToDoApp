@@ -1,16 +1,20 @@
 package se.lexicon;
 
+import se.lexicon.dao.AppUserDAO;
+import se.lexicon.dao.AppUserDaoCollection;
+import se.lexicon.model.AppRole;
+import se.lexicon.model.AppUser;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
-        Person mohammad = new Person(123, "Mohammad", "Alissa","example@hotmail.com");
-        System.out.println(mohammad.toString());
-        Person jack = new Person(124, "Jack", "Warack","exempel@gmail.com");
-        System.out.println(jack.toString());
+        AppUser appUser1 = new AppUser("test", "password", AppRole.ROLE_APP_USER);
+        AppUser appUser2 = new AppUser("test1", "password", AppRole.ROLE_APP_ADMIN);
 
-        TodoItem clean = new TodoItem(222, "clean", "clean the house");
-        System.out.println(clean.toString()); // This also works without toString(); System.out.println(clean); It means that I either can call it explicitly toString() or implicitly without toString().
+        AppUserDAO appUserDAO = new AppUserDaoCollection();
+        AppUser createdAppUser1 = appUserDAO.persist(appUser1);
+        AppUser createdAppUser2 = appUserDAO.persist(appUser2);
+
+
+        System.out.println(appUserDAO.removeUsername("test"));
     }
-
-
 }
