@@ -1,7 +1,7 @@
 
 import org.junit.Assert;
 import org.junit.Test;
-import se.lexicon.Person;
+import se.lexicon.model.Person;
 
 
 public class PersonTest {

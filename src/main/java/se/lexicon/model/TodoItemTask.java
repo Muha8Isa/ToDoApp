@@ -1,11 +1,16 @@
-package se.lexicon;
+package se.lexicon.model;
 
 public class TodoItemTask {
 
-    private int id;
+    private Integer id;
     private boolean assigned;
-    private String todoItem;
-    private String assignee;
+    private TodoItem todoItem;
+    private Person assignee;
+
+    public TodoItemTask(TodoItem todoItem, Person assignee) {
+        setTodoItem(todoItem);
+        setAssignee(assignee);
+    }
 
     public int getId() {
         return id;
@@ -23,20 +28,25 @@ public class TodoItemTask {
         this.assigned = assigned;
     }
 
-    public String getTodoItem() {
+    public TodoItem getTodoItem() {
         return todoItem;
     }
 
-    public void setTodoItem(String todoItem) {
+    public void setTodoItem(TodoItem todoItem) {
         if (todoItem == null) throw new IllegalArgumentException("todoItem param was null");
         this.todoItem = todoItem;
     }
 
-    public String getAssignee() {
+    public Person getAssignee() {
         return assignee;
     }
 
     public void setAssignee(Person assignee) {
-        this.assignee = String.valueOf(assignee);
+        if (assignee != null) {
+            this.assigned = false;
+        } else{
+            this.assigned = true;
+        }
+        this.assignee = assignee;
     }
 }

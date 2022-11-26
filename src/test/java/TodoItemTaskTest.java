@@ -1,7 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
-import se.lexicon.Person;
-import se.lexicon.TodoItemTask;
+import se.lexicon.model.Person;
+import se.lexicon.model.TodoItemTask;
 
 public class TodoItemTaskTest {
 

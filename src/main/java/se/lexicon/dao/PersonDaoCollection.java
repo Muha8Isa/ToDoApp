@@ -1,7 +1,6 @@
 package se.lexicon.dao;
 
-import se.lexicon.Person;
-import se.lexicon.model.AppUser;
+import se.lexicon.model.Person;
 
 import java.util.ArrayList;
 import java.util.Collection;

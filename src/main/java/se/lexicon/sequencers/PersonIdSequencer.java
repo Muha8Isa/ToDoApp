@@ -1,11 +1,10 @@
 package se.lexicon.sequencers;
 
 public class PersonIdSequencer {
-    private static int currentId;
+    private static int currentId = 100;
 
     public static int nextId(){
-        currentId++;
-    return currentId; //Why did you write ++currentId?
+    return ++currentId;
     }
 
     public static int getCurrentId() {

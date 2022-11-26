@@ -1,6 +1,6 @@
 import org.junit.Assert;
 import org.junit.Test;
-import se.lexicon.TodoItem;
+import se.lexicon.model.TodoItem;
 
 import java.time.LocalDate;
 

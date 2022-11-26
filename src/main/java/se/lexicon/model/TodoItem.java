@@ -1,12 +1,11 @@
-package se.lexicon;
+package se.lexicon.model;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.Objects;
 
 
 public class TodoItem {
-    private int id; //Should this be reference class? In the assignment description it says int, so I assumed it should be primitive data type.
+    private Integer id; //Should this be reference class? In the assignment description it says int, so I assumed it should be primitive data type.
     private String title; // Should not be null
     private String taskDescription;
    // public static LocalDate deadLine = LocalDate.parse("2022-11-06"); // Should not be null;
@@ -14,6 +13,8 @@ public class TodoItem {
     //public static LocalDate currentDate = LocalDate.now(); // Should not be null
     private boolean done;
     private Person creator;
+
+    // todo: remove static fields
     private static int order = 0;
     private static int sequencer = 0;
 
@@ -71,6 +72,7 @@ public class TodoItem {
     }
 
     public void setCreator(Person creator) {
+        // todo: improve the code
         this.creator = creator;
     }
 
@@ -85,7 +87,7 @@ public class TodoItem {
 
     public boolean isOverdue(){
         LocalDate currentDate = LocalDate.now();
-        if (currentDate.isAfter(deadLine)) return true;
+        if (currentDate.isAfter(deadLine)) return true; // return (currentDate.isAfter(deadLine)); and delete return false.
         return false;
     }
 

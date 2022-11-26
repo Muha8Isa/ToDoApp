@@ -9,17 +9,10 @@ public class AppUser {
     private String username;
     private Integer id;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        if (id == null) throw new RuntimeException("id was null");
-        this.id = id;
-    }
-
     private String password;
     private Set<AppRole> roles;
+
+
 
 
     public AppUser(String username,String password) { //User without role
@@ -37,6 +30,19 @@ public class AppUser {
         setPassword(password);
         setRoles(roles); //Why is it set here? not add as in line 22?
     }
+
+
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        if (id == null) throw new RuntimeException("id was null");
+        this.id = id;
+    }
+
+
 
 
     public void addRole(AppRole role){

@@ -1,6 +1,4 @@
-package se.lexicon;
-
-import se.lexicon.model.AppUser;
+package se.lexicon.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,10 +23,10 @@ public class Person {
         this.assignedTodos = assignedTodos;
     }
 
-    public Person(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.assignedTodos = new ArrayList<>();
+    public Person(String firstName, String lastName) { // null , "Alissa"
+        setFirstName(firstName);
+        setLastName(lastName);
+        setAssignedTodos(assignedTodos);
     }
 
     public void setId(Integer id) {
@@ -52,9 +50,6 @@ public class Person {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getFirstName() {
         return firstName;
