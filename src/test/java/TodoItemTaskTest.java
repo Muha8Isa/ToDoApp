@@ -1,6 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 import se.lexicon.model.Person;
+import se.lexicon.model.TodoItem;
 import se.lexicon.model.TodoItemTask;
 
 public class TodoItemTaskTest {
@@ -12,7 +13,7 @@ public class TodoItemTaskTest {
     @Test
     public void testAssignee() {
         Person expected = mohammad;
-        String actual =  task.getAssignee();
+        Person actual =  task.getAssignee();
         Assert.assertEquals(expected, actual);
     }
     @Test
@@ -28,7 +29,7 @@ public class TodoItemTaskTest {
     public void testTodoItem() {
         task.setTodoItem("clean, eat, study");
         String expected = ("clean, eat, study");
-        String actual = task.getTodoItem();
+        TodoItem actual = task.getTodoItem();
         Assert.assertEquals(expected, actual);
 
     }
